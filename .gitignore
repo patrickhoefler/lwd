@@ -37,4 +37,5 @@ nosetests.xml
 
 # LWD
 *.xml
+*.bz2
 output
