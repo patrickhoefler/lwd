@@ -68,11 +68,14 @@ def process_dump():
 
                 # If ttl file doesn't exist, create it and add the prefixes
                 if not os.path.isfile(batchfile_ttl_name):
-                    prefixes = """@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-                                  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-                                  @prefix wd: <http://www.wikidata.org/entity/> .
+                    prefixes = '# Extracted from ' + settings.dump_filename + ' with LWD (http://github.com/patrickhoefler/lwd)'
+                    prefixes += """
 
-                                  """.replace('  ', '')
+                    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+                    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+                    @prefix wd: <http://www.wikidata.org/entity/> .
+
+                    """.replace('  ', '')
                     with codecs.open(batchfile_ttl_name, 'a', 'utf-8') as batchfile_ttl:
                         batchfile_ttl.write(prefixes)
 
@@ -81,7 +84,7 @@ def process_dump():
                     batchfile_ttl.write(triples)
 
                 # One more entity
-                entity_counter = entity_counter + 1
+                entity_counter += 1
                 
                 # Print some progress
                 if entity_counter % 1000 == 0:
