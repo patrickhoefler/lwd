@@ -3,6 +3,8 @@ Linked Wiki Data
 
 Create Linked Data (.ttl) from the Wikidata dump.
 
+**Update:** There are now [official Wikidata RDF exports](https://tools.wmflabs.org/wikidata-exports/rdf/).
+
 
 ### Dependencies
 
